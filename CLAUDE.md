@@ -8,7 +8,7 @@ Be extremely concise. Sacrifice grammar for the sake of concision.
 
 ## What this is
 
-The public support site for **Budgie**, a personal budgeting app. Jekyll on GitHub Pages, served at `https://eplabs.com.au/budgie-support/`. Four documents and two workflows; no app code.
+The public support site for **Budgie**, a personal budgeting app. Jekyll on GitHub Pages, served at `https://eplabs.com.au/budgie/` (the repo was `budgie-support` until October 2026; redirect pages at the old paths live in the home page repo). Four documents and two workflows; no app code.
 
 ```
 _layouts/default.html  # the one page template: header, card, footer, all CSS inline
