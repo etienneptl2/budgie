@@ -25,9 +25,19 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "terms.md"
 OUTPUT = ROOT / "terms-appstore.txt"
 
+
+def site_address() -> str:
+    """The published site's address, from `url` + `baseurl` in _config.yml."""
+    config = (ROOT / "_config.yml").read_text(encoding="utf-8")
+    values = dict(re.findall(r"^(url|baseurl):\s*(\S+)\s*$", config, re.MULTILINE))
+    if "url" not in values:
+        sys.exit("_config.yml has no `url:` -- the EULA's links need one.")
+    return values["url"].rstrip("/") + values.get("baseurl", "").rstrip("/") + "/"
+
+
 # Relative links in the Markdown resolve against the published site; the pasted
 # text has no page to be relative to, so they have to become absolute.
-SITE = "https://etienneptl2.github.io/budgie-support/"
+SITE = site_address()
 
 # The emoji carry meaning in the rendered page (they label the contact details)
 # and become noise once stripped, so they are spelled out instead.

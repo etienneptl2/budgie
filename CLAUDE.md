@@ -8,11 +8,11 @@ Be extremely concise. Sacrifice grammar for the sake of concision.
 
 ## What this is
 
-The public support site for **Budgie**, a personal budgeting app. Jekyll on GitHub Pages, served at `https://etienneptl2.github.io/budgie-support/`. Four documents and two workflows; no app code.
+The public support site for **Budgie**, a personal budgeting app. Jekyll on GitHub Pages, served at `https://eplabs.com.au/budgie-support/`. Four documents and two workflows; no app code.
 
 ```
 _layouts/default.html  # the one page template: header, card, footer, all CSS inline
-_config.yml          # site title + `exclude` (keeps this file and scripts/ off the site)
+_config.yml          # site title, published address (`url` + `baseurl`), `exclude` (keeps this file and scripts/ off the site)
 README.md            # the support/FAQ landing page
 privacy.md           # Privacy Policy — numbered sections, the app links to privacy.html
 terms.md             # Terms of Use / EULA — the source of truth
@@ -23,7 +23,9 @@ scripts/             # build-eula-text.py, the generator
 
 ## The look is shared with the home page
 
-No theme: `_layouts/default.html` is styled to match the Budgie home page at `https://etienneptl2.github.io/` (a separate public repo, `etienneptl2.github.io`) — same colour tokens, light/dark handling, wash and card shape. **A change to one site's look should be copied to the other.** The header icon and favicon load from that site's root (`/icon.png`, `/favicon.png`), so renaming them there breaks them here.
+No theme: `_layouts/default.html` is styled to match the Budgie home page at `https://eplabs.com.au/` (a separate public repo, `etienneptl2.github.io`) — same colour tokens, light/dark handling, wash and card shape. **A change to one site's look should be copied to the other.** The header icon and favicon load from that site's root (`/icon.png`, `/favicon.png`), so renaming them there breaks them here.
+
+**The domain lives in one place:** `url` + `baseurl` in `_config.yml`. The pages use `relative_url` and the EULA generator reads the same two keys, so a domain change is: edit them, run the script, commit both. The custom domain itself is set on the home page repo — this site inherits it as a project site, so don't give this repo its own.
 
 Pages need no front matter: GitHub Pages' default plugins give every Markdown file the `default` layout and a title from its first heading. Any new `.md` at the root is therefore **published** — add maintainer-only files to `exclude` in `_config.yml`.
 
