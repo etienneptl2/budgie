@@ -1,4 +1,8 @@
 title: Budgie
+# The published address. Pages would derive both on its own; they're spelled
+# out so the EULA generator in scripts/ can read the same values.
+url: https://eplabs.com.au
+baseurl: /budgie-support
 exclude:
   - CLAUDE.md
   - scripts
