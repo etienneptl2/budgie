@@ -9,7 +9,7 @@ Thanks for using **Budgie**!
 
 If you need help, have feedback, or want to report an issue, please contact:
 
-📧 **Email:** support@tap-app.com.au
+📧 **Email:** hello@eplabs.com.au
 
 ---
 

@@ -5,7 +5,7 @@ layout: default
 
 # Delete Your Account or Your Data
 **Budgie** (App Store / Google Play listing: *Budgie: Budget Smarter*)
-_Last updated: 12 September 2026_
+_Last updated: 10 October 2026_
 
 Two things you can do, both from inside the App:
 
@@ -31,7 +31,7 @@ you delete.
 
 ### If you have already uninstalled the App
 
-Email **support@tap-app.com.au** from the email address associated with your
+Email **hello@eplabs.com.au** from the email address associated with your
 Budgie account and ask us to delete it. We may need to ask you for information
 to confirm the request comes from the account holder before we action it.
 
@@ -98,4 +98,4 @@ account** instead.
 
 For the full picture of what Budgie collects and how long it is kept, see
 Section 8 of the [Privacy Policy](./privacy.md). Questions about a deletion
-request: **support@tap-app.com.au**.
+request: **hello@eplabs.com.au**.

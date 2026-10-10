@@ -5,7 +5,7 @@ layout: default
 
 # Terms of Use (End User License Agreement)
 **Budgie**
-_Last updated: 5 September 2026_
+_Last updated: 10 October 2026_
 
 ---
 
@@ -95,7 +95,7 @@ We may update these Terms from time to time. Changes take effect once posted wit
 ## Contact
 If you have any questions about these Terms, please contact us at:
 
-📧 **support@tap-app.com.au**
+📧 **hello@eplabs.com.au**
 
 📮 **Etienne Petrel**  
 Sydney NSW 2000, Australia
