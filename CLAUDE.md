@@ -32,6 +32,18 @@ No theme: `_layouts/default.html` (the support and legal pages) and `index.html`
 
 Pages need no front matter: GitHub Pages' default plugins give every Markdown file the `default` layout and a title from its first heading. Any new `.md` at the root is therefore **published** — add maintainer-only files to `exclude` in `_config.yml`.
 
+## Previewing locally
+
+`Gemfile` pins the `github-pages` gem, so a local build matches what Pages runs. It needs Homebrew's `ruby@3.3`, which is keg-only (plain `ruby` may be a newer, unsupported version), and a UTF-8 locale, or Sass chokes on the theme's non-ASCII characters:
+
+```
+export PATH=/opt/homebrew/opt/ruby@3.3/bin:$PATH LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+bundle config set --local path vendor/bundle && bundle install   # once
+bundle exec jekyll serve --livereload                            # http://localhost:4000/budgie/
+```
+
+A plain static file server won't do: Markdown pages and the extensionless links both 404.
+
 ## This repository is public
 
 **Everything here is world-readable: the files, the commit messages, the pull request titles and bodies, and every comment.** The app it documents lives in a separate **private** repo. Writing about the work therefore has one hard rule:

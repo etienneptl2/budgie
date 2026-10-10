@@ -10,6 +10,11 @@ permalink: /:path/:basename
 # by default; naming it here makes a local build match.
 plugins:
   - jekyll-relative-links
+# Naming any `exclude` replaces Jekyll's defaults, so the local-preview
+# files (Gemfile, installed gems) are listed again here.
 exclude:
   - CLAUDE.md
   - scripts
+  - Gemfile
+  - Gemfile.lock
+  - vendor
