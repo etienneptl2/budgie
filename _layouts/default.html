@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {%- assign doc_title = page.title | default: site.title -%}
 <title>{% if doc_title contains site.title %}{{ doc_title }}{% else %}{{ doc_title }} · {{ site.title }}{% endif %}</title>
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<link rel="icon" type="image/png" href="{{ '/favicon.png' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
 <style>
   :root {
     --bg: #F4F6FA;
@@ -111,16 +112,17 @@
 </style>
 </head>
 <body>
-  {%- assign support_url = '/' | relative_url -%}
-  {%- assign privacy_url = '/privacy.html' | relative_url -%}
-  {%- assign terms_url = '/terms.html' | relative_url -%}
-  {%- assign delete_url = '/delete-account.html' | relative_url -%}
+  {%- assign home_url = '/' | relative_url -%}
+  {%- assign support_url = '/support' | relative_url -%}
+  {%- assign privacy_url = '/privacy' | relative_url -%}
+  {%- assign terms_url = '/terms' | relative_url -%}
+  {%- assign delete_url = '/delete-account' | relative_url -%}
   {%- assign here = page.url | relative_url -%}
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="/"><img src="/icon.png" width="36" height="36" alt="">Budgie</a>
+      <a class="brand" href="{{ home_url }}"><img src="{{ '/icon.png' | relative_url }}" width="36" height="36" alt="">Budgie</a>
       <nav class="site-nav" aria-label="Support pages">
-        <a href="{{ support_url }}"{% if here == support_url or here == '/budgie/README.html' %} aria-current="page"{% endif %}>Support</a>
+        <a href="{{ support_url }}"{% if here == support_url %} aria-current="page"{% endif %}>Support</a>
         <a href="{{ privacy_url }}"{% if here == privacy_url %} aria-current="page"{% endif %}>Privacy</a>
         <a href="{{ terms_url }}"{% if here == terms_url %} aria-current="page"{% endif %}>Terms</a>
       </nav>
@@ -137,7 +139,7 @@
     <div class="wrap">
       <span>© 2026 Budgie</span>
       <nav aria-label="Footer">
-        <a href="/">Home</a>
+        <a href="{{ home_url }}">Home</a>
         <a href="{{ support_url }}">Support</a>
         <a href="{{ privacy_url }}">Privacy Policy</a>
         <a href="{{ terms_url }}">Terms of Use</a>

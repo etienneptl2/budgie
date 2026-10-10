@@ -8,12 +8,15 @@ Be extremely concise. Sacrifice grammar for the sake of concision.
 
 ## What this is
 
-The public support site for **Budgie**, a personal budgeting app. Jekyll on GitHub Pages, served at `https://eplabs.com.au/budgie/` (the repo was `budgie-support` until October 2026; redirect pages at the old paths live in the home page repo). Four documents and two workflows; no app code.
+The public support site for **Budgie**, a personal budgeting app. Jekyll on GitHub Pages, served at `https://eplabs.com.au/budgie/` (the repo was `budgie-support` until October 2026; redirect pages at the old paths live in the home page repo). A landing page, a support page, three legal documents and two workflows; no app code.
 
 ```
 _layouts/default.html  # the one page template: header, card, footer, all CSS inline
 _config.yml          # site title, published address (`url` + `baseurl`), `exclude` (keeps this file and scripts/ off the site)
-README.md            # the support/FAQ landing page
+index.html           # the Budgie landing page (/budgie/) — standalone HTML with its own CSS, not the layout
+support.md           # the support/FAQ page (/budgie/support)
+README.html          # redirect to support.html: the support page lived at /budgie/README.html before it moved
+*.png, *-badge.svg   # app icon, favicon, touch icon, store badges — used by both index.html and the layout
 privacy.md           # Privacy Policy — numbered sections, the app links to privacy.html
 terms.md             # Terms of Use / EULA — the source of truth
 terms-appstore.txt   # GENERATED from terms.md; never hand-edit
@@ -21,9 +24,9 @@ scripts/             # build-eula-text.py, the generator
 .github/workflows/   # site.yml (Jekyll build), eula.yml (generated-text freshness)
 ```
 
-## The look is shared with the home page
+## Two stylesheets, one look
 
-No theme: `_layouts/default.html` is styled to match the Budgie home page at `https://eplabs.com.au/` (a separate public repo, `etienneptl2.github.io`) — same colour tokens, light/dark handling, wash and card shape. **A change to one site's look should be copied to the other.** The header icon and favicon load from that site's root (`/icon.png`, `/favicon.png`), so renaming them there breaks them here.
+No theme: `_layouts/default.html` (the support and legal pages) and `index.html` (the landing page, which has no front matter so Jekyll copies it verbatim) each carry their own inline CSS — same colour tokens, light/dark handling, wash and card shape. **A change to one's look should be copied to the other.** Icons live in this repo and are referenced relative to `/budgie/`, so the site no longer depends on files at the domain root.
 
 **The domain lives in one place:** `url` + `baseurl` in `_config.yml`. The pages use `relative_url` and the EULA generator reads the same two keys, so a domain change is: edit them, run the script, commit both. The custom domain itself is set on the home page repo — this site inherits it as a project site, so don't give this repo its own.
 
@@ -68,7 +71,7 @@ Nothing about this is secret-handling — no keys or credentials belong in eithe
 - **The app shows a one-time legal notice** keyed to a version number baked into its build. A *material* change here — a new processor, a new category of data sharing, a new promise — must be **live on this site before** the app build announcing it ships, or the notice points at a policy that doesn't yet say what the notice claims. Non-material edits (naming something more precisely, a carve-out in the user's favour) need no bump; say which you think it is in the pull request.
 - **In-app paths are written as `Settings → Export`, `Profile → AI insights`.** Verify them against the current app before writing them — several already-published paths were corrected this way. A group *heading* on a screen isn't a screen you push into, so it doesn't get its own arrow.
 - **Typography is not plain ASCII.** Both documents use non-breaking hyphens (`‑`), curly quotes and em dashes throughout. Match the surrounding text; the generator normalises them for the plain-text copy.
-- `privacy.md` sections are **numbered and cross-referenced** ("see Section 7"). Renumbering means fixing every reference, including the ones in `README.md`.
+- `privacy.md` sections are **numbered and cross-referenced** ("see Section 7"). Renumbering means fixing every reference, including the ones in `support.md`.
 - Markdown tables render fine (kramdown). `privacy.md` already uses one.
 
 ## Jurisdictions
