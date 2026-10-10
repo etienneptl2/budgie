@@ -1,3 +1,8 @@
+---
+title: Support
+layout: default
+---
+
 # Budgie — Support
 
 Thanks for using **Budgie**!

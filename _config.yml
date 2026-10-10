@@ -3,6 +3,13 @@ title: Budgie
 # out so the EULA generator in scripts/ can read the same values.
 url: https://eplabs.com.au
 baseurl: /budgie
+# Links read /budgie/privacy, not /budgie/privacy.html. Pages are still written
+# as privacy.html, so the .html addresses the app and stores use keep working.
+permalink: /:path/:basename
+# Rewrites [text](./privacy.md) links to the published page. Pages turns it on
+# by default; naming it here makes a local build match.
+plugins:
+  - jekyll-relative-links
 exclude:
   - CLAUDE.md
   - scripts
