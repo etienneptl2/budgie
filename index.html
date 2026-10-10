@@ -37,6 +37,10 @@
     --pro-2: #8B5CF6;
     --pro-3: #D946A6;
     --pos: #0E7C51;
+    --raised: #FFFFFF;
+    --amber: #E8A23B;
+    --amber-ink: #A9640B;
+    --cream: #FCF0DC;
     --display: ui-rounded, "Budgie Rounded", -apple-system, BlinkMacSystemFont, sans-serif;
   }
   @media (prefers-color-scheme: dark) {
@@ -54,6 +58,10 @@
       --pro-2: #A78BFA;
       --pro-3: #F472B6;
       --pos: #62D4A1;
+      --raised: #2E3338;
+      --amber: #F0B45A;
+      --amber-ink: #F0B45A;
+      --cream: #221E17;
     }
   }
 
@@ -181,44 +189,148 @@
   @media (max-width: 520px) { .badges img { height: 46px; } }
   .cta-note { display: block; margin-top: 14px; font-size: 14px; color: var(--muted); }
 
-  .features {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 24px 0 64px;
-  }
-  @media (min-width: 560px) { .features { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 960px) { .features { grid-template-columns: repeat(4, 1fr); } }
-  .card {
-    background: var(--card);
+  /* Section headings shared by the privacy band, features and Pro. */
+  .section-head { text-align: center; max-width: 36rem; margin: 0 auto 32px; }
+  .section-head h2 { font-size: clamp(30px, 5vw, 40px); line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 12px; }
+  .section-head p { margin: 0; color: var(--muted); font-size: 18px; }
+
+  /* Privacy: the promise the app is built on, so it comes first. */
+  .privacy { padding: 8px 0 80px; }
+  .privacy-band {
+    border-radius: 28px;
+    padding: 48px 32px 40px;
+    background: linear-gradient(180deg, var(--wash), var(--card) 75%);
     border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 24px;
     box-shadow: var(--shadow);
   }
-  .card .dot {
-    width: 40px; height: 40px; border-radius: 12px;
+  .shield {
+    width: 64px; height: 64px; margin: 0 auto 18px;
+    border-radius: 20px;
     display: grid; place-items: center;
-    background: var(--wash); color: var(--tint);
-    margin-bottom: 14px;
+    background: var(--tint); color: #fff;
+    box-shadow: 0 10px 24px -6px color-mix(in srgb, var(--tint) 60%, transparent);
   }
-  .card .dot svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .card h3 { margin: 0 0 6px; font-size: 18px; }
-  .card p { margin: 0; color: var(--muted); font-size: 15.5px; }
+  .shield svg { width: 32px; height: 32px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .pillars {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; gap: 14px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 560px) { .pillars { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 900px) { .pillars { grid-template-columns: repeat(4, 1fr); } }
+  .pillars li {
+    background: var(--raised);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 18px;
+  }
+  .pillars .emoji { font-size: 26px; line-height: 1; display: block; margin-bottom: 10px; }
+  .pillars h3 { margin: 0 0 4px; font-size: 16.5px; }
+  .pillars p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.5; }
+  @media (max-width: 559px) {
+    .privacy-band { padding: 36px 16px 16px; }
+    .pillars { gap: 10px; }
+    .pillars li { display: grid; grid-template-columns: 34px 1fr; column-gap: 12px; padding: 14px; }
+    .pillars .emoji { grid-row: span 2; margin: 2px 0 0; }
+  }
 
-  .pro { padding: 8px 0 72px; }
+  /* Features: each card shows a little of the app's own UI, like its tour,
+     on one warm ground: the mock-ups carry the colour, and the page has blue enough. */
+  .features { padding: 0 0 80px; }
+  .feature-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+  /* Each card spans two rows of the grid and shares them (subgrid), so the
+     mock-up areas side by side end at the same line and the text starts level. */
+  @media (min-width: 720px) {
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .feature-grid .feature { display: grid; grid-row: span 2; grid-template-rows: subgrid; row-gap: 0; }
+  }
+  .feature {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex; flex-direction: column;
+  }
+  .feature .vig {
+    background: var(--cream);
+    padding: 28px 24px;
+    min-height: 230px;
+    display: grid; place-items: center;
+  }
+  .feature .copy { padding: 22px 26px 26px; }
+  .feature h3 { margin: 0 0 6px; font: 800 21px/1.2 var(--display); letter-spacing: -0.01em; }
+  .feature p { margin: 0; color: var(--muted); font-size: 15.5px; }
+
+  /* Mock UI inside the vignettes. Decorative: hidden from screen readers. */
+  .mock {
+    width: 100%; max-width: 320px;
+    background: var(--raised);
+    border-radius: 18px;
+    box-shadow: 0 12px 28px -10px rgba(17, 24, 28, 0.18);
+    padding: 6px 14px;
+    font-size: 14px;
+  }
+  .mock-row { display: flex; align-items: center; gap: 11px; padding: 10px 0; }
+  .mock-row + .mock-row { border-top: 1px solid var(--border); }
+  .tile {
+    flex: none; width: 34px; height: 34px; border-radius: 11px;
+    display: grid; place-items: center;
+    background: var(--bg); font-size: 17px;
+  }
+  .mock-row .grow { flex: 1; min-width: 0; }
+  .mock-row .name { font-weight: 600; line-height: 1.3; }
+  .mock-row .meta { color: var(--muted); font-size: 12.5px; line-height: 1.3; }
+  .num { font: 800 14px/1 var(--display); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .num.pos { color: var(--pos); }
+  .head-row { display: flex; justify-content: space-between; gap: 8px; }
+  /* As the app writes it: "$18 left of $180", the remainder in bold. */
+  .left { font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+  .left b { font-weight: 700; color: var(--text); }
+  .left.warn b { color: var(--amber-ink); }
+  .bar { display: block; height: 7px; border-radius: 99px; background: var(--bg); margin-top: 6px; overflow: hidden; }
+  .bar span { display: block; height: 100%; border-radius: inherit; background: var(--pos); }
+  .bar.warn span { background: var(--amber); }
+
+  .forecast { padding: 16px 16px 10px; }
+  .forecast .cap { font-size: 12.5px; font-weight: 600; color: var(--muted); }
+  .forecast .fig { font: 800 30px/1.1 var(--display); letter-spacing: -0.03em; margin: 2px 0 6px; }
+  .forecast svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .forecast .axis { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); padding-top: 4px; }
+
+  .goal {
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px;
+  }
+  .ring { flex: none; width: 64px; height: 64px; position: relative; }
+  .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .ring b { position: absolute; inset: 0; display: grid; place-items: center; font: 800 15px/1 var(--display); }
+  .goal .name { font: 800 17px/1.25 var(--display); }
+  .goal .meta { color: var(--muted); font-size: 13px; white-space: nowrap; }
+  .goal .ge { margin-right: 8px; }
+  @media (max-width: 420px) {
+    .goal { gap: 12px; padding: 14px; }
+    .goal .ring { width: 52px; height: 52px; }
+    .goal .ring b { font-size: 13px; }
+    .goal .meta { font-size: 12.5px; }
+  }
+  .goal-stack { width: 100%; max-width: 320px; display: grid; gap: 12px; }
+  .goal-stack .mock { max-width: none; }
+
+  /* Pro */
+  .pro { padding: 0 0 80px; }
   .pro-frame {
     padding: 2px;
-    border-radius: 26px;
+    border-radius: 30px;
     background: linear-gradient(120deg, var(--pro-1), var(--pro-2), var(--pro-3));
     box-shadow: 0 16px 48px -16px color-mix(in srgb, var(--pro-2) 45%, transparent);
   }
   .pro-inner {
     position: relative;
     overflow: hidden;
-    border-radius: 24px;
+    border-radius: 28px;
     background: var(--card);
-    padding: 40px 32px 32px;
+    padding: 44px 40px 32px;
   }
   .pro-inner::before {
     content: "";
@@ -228,52 +340,74 @@
     pointer-events: none;
   }
   .pro-inner > * { position: relative; }
-  .pro-head { text-align: center; max-width: 34rem; margin: 0 auto 32px; }
-  .pro-head h2 {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-size: 32px; letter-spacing: -0.02em; margin: 0 0 10px;
+  .pro-top {
+    display: grid; gap: 32px; align-items: center;
+    grid-template-columns: 1fr;
+    margin-bottom: 36px;
   }
-  .pro-head p { margin: 0; color: var(--muted); }
+  @media (min-width: 820px) { .pro-top { grid-template-columns: 1fr 1fr; gap: 48px; } }
+  .pro-top h2 {
+    display: flex; align-items: center; gap: 10px;
+    font-size: clamp(30px, 5vw, 40px); letter-spacing: -0.03em; line-height: 1.1; margin: 0 0 12px;
+  }
+  .pro-top .lede { margin: 0 0 24px; color: var(--muted); font-size: 18px; }
   .pro-badge {
-    font-size: 13px; font-weight: 800; letter-spacing: 0.08em;
+    font: 800 14px/1 var(--display); letter-spacing: 0.08em;
     color: #fff;
-    padding: 4px 9px; border-radius: 8px;
+    padding: 6px 10px; border-radius: 9px;
     background: linear-gradient(120deg, var(--pro-1), var(--pro-2), var(--pro-3));
   }
-  .pro-list {
-    list-style: none; margin: 0; padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px 32px;
-  }
-  .pro-list li { display: flex; gap: 14px; align-items: flex-start; }
+  .pro-lead { display: flex; gap: 14px; align-items: flex-start; }
+  .pro-lead h3 { margin: 0 0 4px; font: 800 20px/1.2 var(--display); }
+  .pro-lead p { margin: 0; color: var(--muted); }
   .pro-icon {
     flex: none;
-    width: 36px; height: 36px; border-radius: 10px;
+    width: 40px; height: 40px; border-radius: 12px;
     display: grid; place-items: center;
     background: linear-gradient(135deg, var(--pro-1), var(--pro-2), var(--pro-3));
     color: #fff;
   }
-  .pro-icon svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .pro-icon svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .chat { display: grid; gap: 10px; max-width: 360px; width: 100%; justify-self: center; }
+  .chat .msg { display: flex; align-items: flex-end; gap: 10px; }
+  .chat .msg img { flex: none; width: 30px; height: 30px; border-radius: 9px; }
+  .chat .msg .spacer { flex: none; width: 30px; }
+  .bubble {
+    background: var(--raised);
+    border-radius: 18px;
+    padding: 10px 14px;
+    font-size: 14.5px; line-height: 1.45;
+    box-shadow: 0 8px 20px -8px rgba(17, 24, 28, 0.18);
+  }
+  .msg:last-child .bubble { border-bottom-left-radius: 6px; }
+  .bubble b { font-weight: 700; }
+
+  .pro-list {
+    list-style: none; margin: 0; padding: 28px 0 0;
+    border-top: 1px solid var(--border);
+    display: grid; gap: 24px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 560px) { .pro-list { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 900px) { .pro-list { grid-template-columns: repeat(4, 1fr); } }
+  .pro-list .pro-icon { width: 36px; height: 36px; border-radius: 10px; margin-bottom: 12px; }
+  @media (max-width: 559px) {
+    .pro-list { gap: 18px; }
+    .pro-list li { display: grid; grid-template-columns: 36px 1fr; column-gap: 14px; }
+    .pro-list .pro-icon { grid-row: span 2; margin: 0; }
+  }
+  .pro-list .pro-icon svg { width: 19px; height: 19px; }
   .pro-list h3 { margin: 0 0 3px; font-size: 16.5px; }
   .pro-list p { margin: 0; color: var(--muted); font-size: 15px; }
   .pro-note {
-    margin: 32px 0 0; padding-top: 20px;
+    margin: 28px 0 0; padding-top: 20px;
     border-top: 1px solid var(--border);
     text-align: center; font-size: 14px; color: var(--muted);
   }
   @media (max-width: 520px) {
     .pro-inner { padding: 32px 20px 24px; }
   }
-
-  .privacy {
-    text-align: center;
-    max-width: 38rem;
-    margin: 0 auto;
-    padding: 24px 0 72px;
-  }
-  .privacy h2 { font-size: 28px; letter-spacing: -0.02em; margin: 0 0 12px; }
-  .privacy p { color: var(--muted); margin: 0; }
 
   footer {
     border-top: 1px solid var(--border);
@@ -322,66 +456,122 @@
   </header>
 
   <main class="wrap">
-    <section class="features" aria-label="Features">
-      <div class="card">
-        <div class="dot"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
-        <h3>Log in seconds</h3>
-        <p>Add spending and income with a category, and set up the bills and paychecks that repeat.</p>
+    <section class="privacy" aria-labelledby="privacy-title">
+      <div class="privacy-band">
+        <div class="section-head">
+          <div class="shield" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+          <h2 id="privacy-title">Your data stays yours.</h2>
+          <p>Budgie keeps your money records on your phone. Nothing to link, nothing to sign up for — you decide if anything ever leaves it.</p>
+        </div>
+        <ul class="pillars">
+          <li><span class="emoji" aria-hidden="true">📱</span><h3>Stays on your phone</h3><p>Your entries, budgets and goals live on your device.</p></li>
+          <li><span class="emoji" aria-hidden="true">✈️</span><h3>Works offline</h3><p>Log, budget and look back with no signal at all.</p></li>
+          <li><span class="emoji" aria-hidden="true">🏦</span><h3>No bank login</h3><p>Budgie never asks for your bank details.</p></li>
+          <li><span class="emoji" aria-hidden="true">🚀</span><h3>No account needed</h3><p>Start straight away. Cloud sync is optional, with Budgie Pro.</p></li>
+        </ul>
       </div>
-      <div class="card">
-        <div class="dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 12V3a9 9 0 0 1 9 9z"/></svg></div>
-        <h3>Stay on budget</h3>
-        <p>Set limits per category and see at a glance how much room is left this month.</p>
+    </section>
+
+    <section class="features" aria-labelledby="features-title">
+      <div class="section-head">
+        <h2 id="features-title">Everything in one calm place.</h2>
+        <p>Log what you spend, plan what’s coming and watch your goals fill up.</p>
       </div>
-      <div class="card">
-        <div class="dot"><svg viewBox="0 0 24 24"><path d="M3 20h18M6 16V10M11 16V6M16 16v-4M21 16V8"/></svg></div>
-        <h3>See the patterns</h3>
-        <p>Charts and trends show where your money goes, week to week and month to month.</p>
-      </div>
-      <div class="card">
-        <div class="dot"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 6.9L12 17.6 5.8 21l1.4-6.9L2 9.3l7-.8z"/></svg></div>
-        <h3>Save toward goals</h3>
-        <p>Name something you're saving for and watch your progress build over time.</p>
+      <div class="feature-grid">
+        <article class="feature">
+          <div class="vig" aria-hidden="true">
+            <div class="mock">
+              <div class="mock-row"><span class="tile">☕</span><span class="grow"><span class="name">Flat white</span><br><span class="meta">Today · Coffee</span></span><span class="num">−5.50</span></div>
+              <div class="mock-row"><span class="tile">🏠</span><span class="grow"><span class="name">Rent</span><br><span class="meta">Repeats monthly</span></span><span class="num">−1,800</span></div>
+              <div class="mock-row"><span class="tile">💼</span><span class="grow"><span class="name">Payday</span><br><span class="meta">Repeats fortnightly</span></span><span class="num pos">+3,200</span></div>
+            </div>
+          </div>
+          <div class="copy"><h3>Log in seconds</h3><p>Add spending and income with a category, and set up the bills and paychecks that repeat.</p></div>
+        </article>
+        <article class="feature">
+          <div class="vig" aria-hidden="true">
+            <div class="mock forecast">
+              <div class="cap">Balance in 3 months</div>
+              <div class="fig">$4,820</div>
+              <svg viewBox="0 0 280 80">
+                <defs><linearGradient id="fc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--tint)" stop-opacity=".25"/><stop offset="1" stop-color="var(--tint)" stop-opacity="0"/></linearGradient></defs>
+                <path d="M0 66 C30 62 50 58 80 52 S120 46 140 40 L140 80 L0 80 Z" fill="url(#fc)"/>
+                <path d="M0 66 C30 62 50 58 80 52 S120 46 140 40" fill="none" stroke="var(--tint)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M140 40 C170 34 190 30 215 24 S255 14 280 10" fill="none" stroke="var(--tint)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 7"/>
+                <circle cx="140" cy="40" r="6" fill="var(--card)" stroke="var(--tint)" stroke-width="3"/>
+              </svg>
+              <div class="axis"><span>3 months ago</span><span>Today</span><span>In 3 months</span></div>
+            </div>
+          </div>
+          <div class="copy"><h3>See money before it happens</h3><p>Add your pay and bills once. Budgie projects your balance forward, so nothing sneaks up on you.</p></div>
+        </article>
+        <article class="feature">
+          <div class="vig" aria-hidden="true">
+            <div class="mock">
+              <div class="mock-row"><span class="tile">🍔</span><span class="grow"><span class="head-row"><span class="name">Takeaway</span><span class="left warn"><b>$18 left</b> of $180</span></span><span class="bar warn"><span style="width:90%"></span></span></span></div>
+              <div class="mock-row"><span class="tile">🍎</span><span class="grow"><span class="head-row"><span class="name">Groceries</span><span class="left"><b>$228 left</b> of $600</span></span><span class="bar"><span style="width:62%"></span></span></span></div>
+              <div class="mock-row"><span class="tile">🎬</span><span class="grow"><span class="head-row"><span class="name">Subscriptions</span><span class="left"><b>$36 left</b> of $60</span></span><span class="bar"><span style="width:40%"></span></span></span></div>
+            </div>
+          </div>
+          <div class="copy"><h3>Stay on budget</h3><p>Set limits overall or per category and see at a glance how much room is left this month.</p></div>
+        </article>
+        <article class="feature">
+          <div class="vig" aria-hidden="true">
+            <div class="goal-stack">
+              <div class="mock goal">
+                <span class="ring"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="none" stroke="var(--bg)" stroke-width="5"/><circle cx="18" cy="18" r="15" fill="none" stroke="var(--pos)" stroke-width="5" stroke-linecap="round" stroke-dasharray="58.4 94.2"/></svg><b>62%</b></span>
+                <span class="grow"><span class="name"><span class="ge">🌴</span>Holiday</span><br><span class="meta">$1,240 of $2,000 · by June</span></span>
+              </div>
+              <div class="mock goal">
+                <span class="ring"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="none" stroke="var(--bg)" stroke-width="5"/><circle cx="18" cy="18" r="15" fill="none" stroke="var(--tint)" stroke-width="5" stroke-linecap="round" stroke-dasharray="17 94.2"/></svg><b>18%</b></span>
+                <span class="grow"><span class="name"><span class="ge">🚗</span>New car</span><br><span class="meta">$1,800 of $10,000 · by March</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="copy"><h3>Save toward goals</h3><p>Name something you’re saving for and watch your progress build over time.</p></div>
+        </article>
       </div>
     </section>
 
     <section class="pro" aria-labelledby="pro-title">
       <div class="pro-frame">
         <div class="pro-inner">
-          <div class="pro-head">
-            <h2 id="pro-title">Budgie <span class="pro-badge">PRO</span></h2>
-            <p>Everything Budgie does, plus a few things that make it feel effortless.</p>
+          <div class="pro-top">
+            <div>
+              <h2 id="pro-title">Budgie <span class="pro-badge">PRO</span></h2>
+              <p class="lede">Everything Budgie does, plus a few things that make it feel effortless.</p>
+              <div class="pro-lead">
+                <span class="pro-icon"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8zM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></span>
+                <div><h3>AI insights</h3><p>A second pair of eyes: Budgie spots the habits that quietly cost the most, and realistic ways to reach your goals sooner.</p></div>
+              </div>
+            </div>
+            <div class="chat" aria-hidden="true">
+              <div class="msg"><span class="spacer"></span><div class="bubble">Coffee is your quiet big spender — <b>$86</b> so far this month.</div></div>
+              <div class="msg"><span class="spacer"></span><div class="bubble">You spent <b>12% less</b> on takeaway than last month. Nice.</div></div>
+              <div class="msg"><img src="icon.png" width="30" height="30" alt=""><div class="bubble">Skip two lunches out a week and Holiday lands <b>5 weeks sooner</b>.</div></div>
+            </div>
           </div>
           <ul class="pro-list">
             <li>
-              <span class="pro-icon"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8zM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></span>
-              <div><h3>AI insights</h3><p>Spots the habits, changes and quick wins in your spending — every card unlocked the moment it's written.</p></div>
-            </li>
-            <li>
               <span class="pro-icon"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8M4 4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16M20 20v-4h-4"/></svg></span>
-              <div><h3>Sync across devices</h3><p>Your entries, budgets and goals on every device you sign into — and safe if you lose one.</p></div>
+              <h3>Sync across devices</h3><p>Your entries, budgets and goals on every device you sign into — and safe if you lose one.</p>
             </li>
             <li>
               <span class="pro-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></span>
-              <div><h3>No ads</h3><p>Every ad disappears, everywhere in the app.</p></div>
+              <h3>No ads</h3><p>Every ad disappears, everywhere in the app.</p>
             </li>
             <li>
               <span class="pro-icon"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
-              <div><h3>Hide amounts</h3><p>Cover every amount at once, then tap to bring them back.</p></div>
+              <h3>Hide amounts</h3><p>Cover every amount at once, then tap to bring them back.</p>
             </li>
             <li>
               <span class="pro-icon"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span>
-              <div><h3>Smart suggestions</h3><p>One-tap entries for the things you log again and again.</p></div>
+              <h3>Smart suggestions</h3><p>One-tap entries for the things you log again and again.</p>
             </li>
           </ul>
           <p class="pro-note">Budgie Pro is an in-app subscription tied to your Budgie account.</p>
         </div>
       </div>
-    </section>
-
-    <section class="privacy">
-      <h2>Your data stays yours.</h2>
-      <p>Budgie works fully offline and keeps your records on your phone. No account needed to get started — syncing to the cloud is entirely optional, with Budgie Pro.</p>
     </section>
   </main>
 
