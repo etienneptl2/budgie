@@ -1,6 +1,6 @@
 TERMS OF USE (END USER LICENSE AGREEMENT)
 Budgie
-Last updated: 5 September 2026
+Last updated: 10 October 2026
 
 INTRODUCTION
 Welcome to Budgie ("the App"). These Terms of Use ("Terms") form a binding agreement between you and the developer of Budgie. By downloading, accessing, or using the App, you agree to be bound by these Terms. If you do not agree, you must stop using the App.
@@ -88,7 +88,7 @@ We may update these Terms from time to time. Changes take effect once posted wit
 CONTACT
 If you have any questions about these Terms, please contact us at:
 
-Email: support@tap-app.com.au
+Email: hello@eplabs.com.au
 
 Address: Etienne Petrel
 Sydney NSW 2000, Australia

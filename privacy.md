@@ -5,7 +5,7 @@ layout: default
 
 # Privacy Policy
 **Budgie**
-_Last updated: 12 September 2026_
+_Last updated: 10 October 2026_
 
 ---
 
@@ -201,9 +201,9 @@ This Privacy Policy may be updated periodically. Any changes take effect once po
 ## 12. Contact
 If you have questions about this Privacy Policy or wish to exercise your privacy rights, please contact us:
 
-📧 **support@tap-app.com.au**
+📧 **hello@eplabs.com.au**
 
 📮 **Etienne Petrel**  
 Sydney NSW 2000, Australia
 
-**Privacy Officer.** Budgie's Privacy Officer is accountable for our compliance with this policy and with applicable privacy laws, and can be reached at support@tap-app.com.au.
+**Privacy Officer.** Budgie's Privacy Officer is accountable for our compliance with this policy and with applicable privacy laws, and can be reached at hello@eplabs.com.au.
