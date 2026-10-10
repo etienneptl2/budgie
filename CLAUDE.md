@@ -17,6 +17,7 @@ index.html           # the Budgie landing page (/budgie/) — standalone HTML wi
 support.md           # the support/FAQ page (/budgie/support)
 README.html          # redirect to support.html: the support page lived at /budgie/README.html before it moved
 *.png, *-badge.svg   # app icon, favicon, touch icon, store badges — used by both index.html and the layout
+fonts/               # Nunito 800 (+ OFL licence): the rounded display face for non-Apple browsers
 privacy.md           # Privacy Policy — numbered sections, the app links to privacy.html
 terms.md             # Terms of Use / EULA — the source of truth
 terms-appstore.txt   # GENERATED from terms.md; never hand-edit
@@ -26,11 +27,23 @@ scripts/             # build-eula-text.py, the generator
 
 ## Two stylesheets, one look
 
-No theme: `_layouts/default.html` (the support and legal pages) and `index.html` (the landing page, which has no front matter so Jekyll copies it verbatim) each carry their own inline CSS — same colour tokens, light/dark handling, wash and card shape. **A change to one's look should be copied to the other.** Icons live in this repo and are referenced relative to `/budgie/`, so the site no longer depends on files at the domain root.
+No theme: `_layouts/default.html` (the support and legal pages) and `index.html` (the landing page, which has no front matter so Jekyll copies it verbatim) each carry their own inline CSS — same colour tokens, light/dark handling, wash and card shape. **A change to one's look should be copied to the other.** Headings and the wordmark use the app's display face — SF Pro Rounded heavy via `ui-rounded`, with self-hosted Nunito as the fallback (no font CDN: the site shouldn't phone a third party). Icons live in this repo and are referenced relative to `/budgie/`, so the site no longer depends on files at the domain root.
 
 **The domain lives in one place:** `url` + `baseurl` in `_config.yml`. The pages use `relative_url` and the EULA generator reads the same two keys, so a domain change is: edit them, run the script, commit both. The custom domain itself is set on the home page repo — this site inherits it as a project site, so don't give this repo its own.
 
 Pages need no front matter: GitHub Pages' default plugins give every Markdown file the `default` layout and a title from its first heading. Any new `.md` at the root is therefore **published** — add maintainer-only files to `exclude` in `_config.yml`.
+
+## Previewing locally
+
+`Gemfile` pins the `github-pages` gem, so a local build matches what Pages runs. It needs Homebrew's `ruby@3.3`, which is keg-only (plain `ruby` may be a newer, unsupported version), and a UTF-8 locale, or Sass chokes on the theme's non-ASCII characters:
+
+```
+export PATH=/opt/homebrew/opt/ruby@3.3/bin:$PATH LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+bundle config set --local path vendor/bundle && bundle install   # once
+bundle exec jekyll serve --livereload                            # http://localhost:4000/budgie/
+```
+
+A plain static file server won't do: Markdown pages and the extensionless links both 404.
 
 ## This repository is public
 
