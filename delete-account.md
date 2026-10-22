@@ -22,11 +22,11 @@ Two things you can do, both from inside the App:
 ### Delete from inside the App
 
 1. Open Budgie and make sure you are signed in.
-2. Go to **Profile → Settings → Delete account**.
+2. Go to **Profile → Account → Delete account**.
 3. Confirm when prompted.
 
 Deletion is **immediate and permanent**, and it cannot be undone. If you want a
-copy of your data first, export it via **Profile → Settings → Export** before
+copy of your data first, export it via **Profile → Data & backup → Export** before
 you delete.
 
 ### If you have already uninstalled the App
@@ -64,7 +64,7 @@ contain your budgeting data.
 
 Deleting your Budgie account does **not** cancel a Budgie Pro subscription.
 Cancel it separately in your **Apple App Store** or **Google Play** account
-settings, or via **Profile → Settings → Manage subscription** in the App before you
+settings, or via **Profile → Budgie Pro → Manage subscription** in the App before you
 delete your account.
 
 ---
@@ -73,9 +73,9 @@ delete your account.
 {: #erase-your-data-but-keep-your-account }
 
 If you want to clear your budgeting data but keep your Budgie account, open the
-App and go to **Profile → Settings → Erase all data**, then confirm. This is
+App and go to **Profile → Data & backup → Erase all data**, then confirm. This is
 **immediate and permanent**, and it cannot be undone. Consider exporting a
-backup first, via **Profile → Settings → Export**.
+backup first, via **Profile → Data & backup → Export**.
 
 ### What is deleted
 
@@ -94,7 +94,7 @@ information in it — which is retained so that the erase reaches your other
 devices. Feedback messages you have sent are kept too, as they aren’t budgeting
 data. Subscription and purchase records are retained as described above.
 
-To remove the account itself as well, use **Profile → Settings → Delete
+To remove the account itself as well, use **Profile → Account → Delete
 account** instead.
 
 ---
