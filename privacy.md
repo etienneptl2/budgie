@@ -5,7 +5,7 @@ layout: default
 
 # Privacy Policy
 **Budgie**
-_Last updated: 10 October 2026_
+_Last updated: 22 October 2026_
 
 ---
 
@@ -75,6 +75,21 @@ Because goal names, budget names, and any custom category names you create are y
 
 **Your control.** You can turn insights off at any time in **Profile → AI insights**. Turning the switch off **deletes the cards already generated on your device** and stops anything further being sent. Deleting your account (Section 8) also removes the usage counter described above.
 
+### 2.8 Feedback You Send Us
+You can send us a message from inside the App, via **Profile → Help & feedback → Send feedback** or from an occasional invitation on the Home screen. Sending feedback is always your choice, and you don’t need to be signed in. When you send a message, we receive:
+
+- the **type** you chose (bug, idea or other) and **the message you wrote**
+- your **app version**, **device platform and operating‑system version**, and **language and region setting**, so that we can reproduce problems
+- whether you are a **Budgie Pro** subscriber
+- a **random install identifier** that the App creates, used only to limit how many messages one device can send each day — it is not an advertising identifier and is not used to track you
+- your **account identifier**, if you are signed in
+
+**Being contacted is your choice.** Each message has an **“OK to contact me about this”** switch. If it is on and you are signed in, we keep your account’s email address with the message so that we can reply; if you aren’t signed in, you can type an email address for the same purpose. If it is off, no email address is stored with the message.
+
+**What is never sent.** Feedback does not include your budgeting data — no entries, amounts, categories or notes — unless you type them into the message yourself, so please leave out anything you would rather not share.
+
+**What we store.** Messages travel via our own server function and are stored in **Google Firebase Firestore**. To prevent abuse, we keep a **daily counter** of messages sent (a date and a number) against your account or, if you aren’t signed in, against the install identifier. Our server logs record that a message arrived, along with its type and length — never its text or your email address.
+
 ---
 
 ## 3. How We Use Information
@@ -83,6 +98,7 @@ We use the information described above solely to:
 - Authenticate you when you sign in
 - Sync your data across your devices when you enable cloud sync
 - Generate AI insight cards, when you have turned that feature on
+- Read and respond to feedback you send us, and use it to improve the App
 - Display and measure advertising
 - Maintain the security and reliability of the App
 - Enforce fair‑use limits on features that cost us money to run
@@ -99,7 +115,7 @@ Budgie relies on the following third‑party services, each governed by its own 
 | --- | --- |
 | **Firebase Authentication** | User sign‑in (via Apple or Google) |
 | **Firebase Firestore** | Optional cloud data storage and sync |
-| **Firebase Cloud Functions** | Our own server function, which relays AI insight requests |
+| **Firebase Cloud Functions** | Our own server functions, which relay AI insight requests and receive feedback messages |
 | **OpenAI** | Generating AI insight cards from an aggregated summary (opt‑in) |
 | **Google AdMob** | Advertising |
 | **Google User Messaging Platform (UMP)** | Ad consent management |
@@ -170,6 +186,7 @@ Many countries have their own privacy laws, most of which provide rights similar
 - **Erasing your data without deleting your account.** **Profile → Settings → Erase all data** clears your budgeting data on the device and, if **Sync to cloud** is on, in the cloud and on your other devices. Each erased record leaves a **deletion marker** — an identifier and a timestamp, containing no financial information — which we retain so that the erase reaches your other devices.
 - **Cloud sync data** is stored until you delete it. You can permanently delete your account and all associated cloud data at any time via **Profile → Settings → Delete account**, which removes your Firebase authentication record and your Firestore data.
 - **AI insight cards** are held on your device only, and are refreshed or replaced as your data changes. They are deleted when you turn off **Profile → AI insights**, when you erase your data, or when you delete your account. The summary sent to OpenAI is retained by OpenAI for a limited period (currently up to 30 days) for abuse monitoring and then deleted, under their API policy; the daily usage counter we keep is removed when you delete your account.
+- **Feedback messages** are kept for as long as we need them to respond to you and to improve the App. Messages sent while signed in are deleted when you delete your account, along with the daily feedback counter. Messages sent while signed out aren’t linked to an account; to have them deleted, email us (see Section 12) with the address you gave, or enough detail for us to find them. **Erase all data** does not remove feedback you have sent, as it isn’t budgeting data.
 - **Subscription and purchase records** held by RevenueCat and the app stores are retained under their respective policies. You manage or cancel a Budgie Pro subscription through your Apple App Store or Google Play account.
 - Alternatively, you can request deletion by emailing us (see Section 12).
 
@@ -189,7 +206,7 @@ Data handled through **Google Firebase / Firestore** is **encrypted in transit**
 
 Summaries sent for **AI insights** travel over an encrypted (TLS) connection to our server function and on to OpenAI, and are processed on OpenAI's servers in the **United States**.
 
-Because Google, Apple, OpenAI, and our other providers operate globally, your information may be stored or processed on servers located **outside your country**, including in countries whose data‑protection laws differ from your own. Specifically, cloud sync data is stored in **Google’s United States multi‑region**, and both our own server function and OpenAI’s processing of AI insight summaries take place in the **United States**. We use established, widely‑used providers and take reasonable steps to protect your information. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.
+Because Google, Apple, OpenAI, and our other providers operate globally, your information may be stored or processed on servers located **outside your country**, including in countries whose data‑protection laws differ from your own. Specifically, cloud sync data and feedback messages are stored in **Google’s United States multi‑region**, and both our own server functions and OpenAI’s processing of AI insight summaries take place in the **United States**. We use established, widely‑used providers and take reasonable steps to protect your information. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.
 
 ---
 

@@ -5,7 +5,7 @@ layout: default
 
 # Delete Your Account or Your Data
 **Budgie** (App Store / Google Play listing: *Budgie: Budget Smarter*)
-_Last updated: 10 October 2026_
+_Last updated: 22 October 2026_
 
 Two things you can do, both from inside the App:
 
@@ -46,6 +46,8 @@ Deleting your account permanently removes:
 - all **synced budgeting data** held in the cloud for that account — income and
   expense entries (including any notes), budgets, savings goals, recurring
   series, and your categories;
+- any **feedback messages** you sent from the App while signed in, and the
+  daily counter that limits them;
 - the **AI insights usage counter** we keep against your account.
 
 **Data on your device** is separate: it stays on the device until you delete it
@@ -89,7 +91,8 @@ Your account and sign‑in remain active, as do your App preferences (currency,
 appearance, haptics) and any unused insight credits. Each erased record leaves
 behind a **deletion marker** — an identifier and a timestamp, with no financial
 information in it — which is retained so that the erase reaches your other
-devices. Subscription and purchase records are retained as described above.
+devices. Feedback messages you have sent are kept too, as they aren’t budgeting
+data. Subscription and purchase records are retained as described above.
 
 To remove the account itself as well, use **Profile → Settings → Delete
 account** instead.
