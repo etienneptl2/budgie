@@ -5,7 +5,7 @@ layout: default
 
 # Terms of Use (End User License Agreement)
 **Budgie**
-_Last updated: 10 October 2026_
+_Last updated: 22 October 2026_
 
 ---
 
@@ -24,7 +24,7 @@ Budgie is a personal budgeting tool that helps you record income and expenses, s
 ## AI Insights
 Budgie can generate short "insight cards" about your spending. These cards are written by an AI model provided by **OpenAI**, based on an aggregated summary of your budgeting data.
 
-- **Opt‑in.** AI insights are **off by default**. Nothing is sent for analysis unless you turn the feature on in **Profile → AI insights**, and the feature requires you to be signed in. See our [Privacy Policy](./privacy.md) for exactly what is sent and what never leaves your device.
+- **Opt‑in.** AI insights are **off by default**. Nothing is sent for analysis unless you turn the feature on in **Profile → Privacy → Write insights**, and the feature requires you to be signed in. See our [Privacy Policy](./privacy.md) for exactly what is sent and what never leaves your device.
 - **Unlocking cards.** Cards can be unlocked by watching a rewarded advertisement. **Budgie Pro** subscribers get a higher daily allowance and an ad‑free experience.
 - **Not financial advice.** AI‑generated insights are provided for **informational and personal organisation purposes only**. They do **not** constitute financial, investment, accounting, tax, or legal advice, and they are not a recommendation to buy, sell, or use any financial product. You are solely responsible for any decisions you make in response to them.
 - **Accuracy.** AI models can produce output that is incomplete, misleading, or wrong. While Budgie takes steps to ground each card in your own figures and checks the results before showing them, we do **not** warrant that any insight is accurate, complete, or suitable for your circumstances. Always check a card against your own records before acting on it.
@@ -34,7 +34,7 @@ Budgie can generate short "insight cards" about your spending. These cards are w
 Budgie offers an optional paid subscription, **Budgie Pro**, which unlocks **cloud sync** across your devices and an **ad‑free** experience. Budgie Pro is offered as an **auto‑renewing subscription** on a **monthly** or **yearly** basis.
 
 - **Billing.** Budgie Pro is purchased and billed through the **Apple App Store** or **Google Play**, and charged to your store account at confirmation of purchase.
-- **Auto‑renewal.** Your subscription automatically renews for the same period unless you cancel at least 24 hours before the end of the current period. You can **manage or cancel** your subscription in your Apple App Store or Google Play account settings, which you can also reach in‑app via **Settings → Manage subscription**. If you have Pro on another device or after reinstalling, use **Settings → Restore purchases**.
+- **Auto‑renewal.** Your subscription automatically renews for the same period unless you cancel at least 24 hours before the end of the current period. You can **manage or cancel** your subscription in your Apple App Store or Google Play account settings, which you can also reach in‑app via **Profile → Budgie Pro → Manage subscription**. If you have Pro on another device or after reinstalling, use **Profile → Budgie Pro → Restore purchases**.
 - **Refunds, price, and billing.** Payments, refunds, and any price changes are handled by the Apple App Store or Google Play under their terms; we do not process payments or issue refunds directly.
 - **Loss of access.** Pro features stop when your subscription lapses or is cancelled — cloud sync stops running and advertising resumes. Your locally stored budgeting data is not affected.
 
@@ -70,7 +70,7 @@ The App, including its name, logo, design, and content (excluding your own data)
 The App is provided on an "as is" and "as available" basis without warranties of any kind. To the maximum extent permitted by law, we are not liable for any direct, indirect, incidental, or consequential damages arising from your use of, or inability to use, the App, including any loss of data or any decisions made based on information in the App. Nothing in these Terms excludes or limits any rights you may have under the Australian Consumer Law or other mandatory consumer protections that cannot be lawfully excluded — including, where they apply to you, your rights in respect of digital content that is not as described or not of satisfactory quality, and our liability for death or personal injury caused by negligence, or for fraud.
 
 ## Termination
-We may suspend or terminate your access to the App at our discretion if you violate these Terms. You may stop using the App and delete it at any time. You can delete your account and associated cloud data via Settings → Delete account.
+We may suspend or terminate your access to the App at our discretion if you violate these Terms. You may stop using the App and delete it at any time. You can delete your account and associated cloud data via Profile → Account → Delete account.
 
 ## Governing Law
 These Terms are governed by the laws of the Commonwealth of Australia, and any disputes will be subject to the jurisdiction of the Australian courts, without affecting any mandatory consumer rights in your place of residence.

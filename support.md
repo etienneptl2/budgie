@@ -29,11 +29,11 @@ Send your suggestion via email and the team will review it for future updates.
 
 Your budgeting data is stored **locally on your device** by default, and the App is free to use without an account.
 
-If you subscribe to **Budgie Pro**, **sign in** (with Apple or Google), and turn on **cloud sync**, your data is stored in Google Firebase so it can sync across your devices. The free App displays ads via Google AdMob. See the [Privacy Policy](./privacy.md) for full details. You can delete your account and data at any time in Profile → Settings → Delete account — see [Delete your account](./delete-account.md).
+If you subscribe to **Budgie Pro**, **sign in** (with Apple or Google), and turn on **cloud sync**, your data is stored in Google Firebase so it can sync across your devices. The free App displays ads via Google AdMob. See the [Privacy Policy](./privacy.md) for full details. You can delete your account and data at any time in Profile → Account → Delete account — see [Delete your account](./delete-account.md).
 
 ### What are AI insights, and what gets sent?
 
-**AI insights** are short cards about your spending, written by an AI model from OpenAI. The feature is **off by default** — nothing is sent unless you turn on **Profile → AI insights** while signed in.
+**AI insights** are short cards about your spending, written by an AI model from OpenAI. The feature is **off by default** — nothing is sent unless you turn on **Profile → Privacy → Write insights** while signed in.
 
 When it's on, Budgie sends **aggregated totals** — monthly income and spending, per‑category totals, and your budgets and goals (including the names you gave them). Your **notes and individual transactions never leave your device**, nothing identifying you is sent to OpenAI, and your data is **not used to train any AI model**. Turning the switch off deletes the cards on your device. See section 2.7 of the [Privacy Policy](./privacy.md).
 
@@ -51,11 +51,11 @@ It’s available as a **monthly** or **yearly** auto‑renewing subscription, bi
 
 ### How do I manage or cancel my subscription?
 
-Open **Profile → Settings → Manage subscription** in the app (this opens your store's subscription sheet), or manage it directly in your **Apple App Store** or **Google Play** account settings.
+Open **Profile → Budgie Pro → Manage subscription** in the app (this opens your store's subscription sheet), or manage it directly in your **Apple App Store** or **Google Play** account settings.
 
 ### I paid for Budgie Pro but don't see it (new device or reinstall).
 
-Open **Profile → Settings → Restore purchases**. Make sure you're signed in with the same Apple or Google account you used to purchase, and the same Budgie account you subscribed with.
+Open **Profile → Budgie Pro → Restore purchases**. Make sure you're signed in with the same Apple or Google account you used to purchase, and the same Budgie account you subscribed with.
 
 ---
 
