@@ -7,7 +7,7 @@ layout: default
 
 Thanks for using **Budgie**!
 
-If you need help, have feedback, or want to report an issue, please contact:
+If you need help, have feedback, or want to report an issue, the quickest way is **Profile → Help & feedback → Send feedback** in the App. You can also contact:
 
 📧 **Email:** hello@eplabs.com.au
 
